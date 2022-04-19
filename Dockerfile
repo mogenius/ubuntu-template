@@ -21,6 +21,6 @@ RUN apt-get clean && \
 EXPOSE 22
 
 # PLEASE CHANGE THAT AFTER FIRST LOGIN
-RUN echo 'root:test1234' | chpasswd
+RUN echo 'root:mogenius' | chpasswd
 
 CMD ["/usr/sbin/sshd", "-D"]
