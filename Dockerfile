@@ -3,12 +3,13 @@
 FROM ubuntu:18.04
 MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
 
+RUN useradd --user-group --create-home --system mogenius
+USER 999
+
 RUN apt-get update
 
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
-
-RUN useradd --user-group --create-home --system mogenius
 
 RUN echo 'root:root' |chpasswd
 
@@ -24,7 +25,5 @@ EXPOSE 22
 
 # PLEASE CHANGE THAT AFTER FIRST LOGIN
 RUN echo 'mogenius:mogenius' | chpasswd
-
-USER 999
 
 CMD ["/usr/sbin/sshd", "-D"]
