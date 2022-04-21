@@ -3,13 +3,12 @@
 FROM ubuntu:18.04
 MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
 
-RUN useradd --user-group --create-home --system mogenius
-USER 999
-
 RUN apt-get update
 
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
+
+RUN useradd --user-group --create-home --system mogenius
 
 RUN echo 'root:root' |chpasswd
 
