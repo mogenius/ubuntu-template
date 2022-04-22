@@ -25,4 +25,4 @@ EXPOSE 22
 # PLEASE CHANGE THAT AFTER FIRST LOGIN
 RUN echo 'mogenius:mogenius' | chpasswd
 
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/sshd", "-D", "-e"]
